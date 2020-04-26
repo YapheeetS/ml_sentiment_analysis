@@ -1,2 +1,4 @@
 aclImdb/
 .vscode/
+pretrained_model/
+20_newsgroup
