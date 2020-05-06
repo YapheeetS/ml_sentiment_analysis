@@ -43,18 +43,22 @@ class Data_preprocess(object):
         for index, fi in tqdm(enumerate(file_list)):
             with open(fi, encoding='utf8') as file_input:
                 filelines = file_input.readlines()
-                text = filelines[0]
-                # remove < > tag
-                text = self.rm_tags(text)
-                # lower case
-                text = text.lower()
-                # tokenize
-                words = word_tokenize(text)
-                # topwords
-                words = [w for w in words if w not in stopwords.words('english')]
-                # # Stemming
-                words = [PorterStemmer().stem(w) for w in words]
-                all_texts.append(words)
+                if len(filelines) != 0:
+                    text = filelines[0]
+                    # remove < > tag
+                    text = self.rm_tags(text)
+                    # lower case
+                    text = text.lower()
+                    # tokenize
+                    words = word_tokenize(text)
+                    # topwords
+                    words = [w for w in words if w not in stopwords.words('english')]
+                    # # Stemming
+                    words = [PorterStemmer().stem(w) for w in words]
+                    all_texts.append(words)
+                else:
+                    print('empty index: ', index)
+                    all_texts.append([''])
             # if index == 10:
             #     break
 

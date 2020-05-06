@@ -44,9 +44,7 @@ model.summary()
 # model.fit(x_train, y_train, batch_size=128, epochs=10,validation_split=VALIDATION_SPLIT)
 log_dir = "logs/fit2/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
-
-# model.fit(x_train, y_train, batch_size=128, epochs=10,validation_split=VALIDATION_SPLIT, callbacks=[tensorboard_callback])
-model.fit(x_train, y_train, batch_size=128,epochs=2)
+model.fit(x_train, y_train, batch_size=128, epochs=10,validation_split=VALIDATION_SPLIT, callbacks=[tensorboard_callback])
 
 x_test = tokenizer.texts_to_sequences(x_test)
 x_test = tf.keras.preprocessing.sequence.pad_sequences(x_test, maxlen=MAX_SEQUENCE_LENGTH)
