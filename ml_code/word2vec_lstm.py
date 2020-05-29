@@ -24,9 +24,9 @@ x_test = np.load('x_test.npy', allow_pickle=True)
 y_test = np.load('y_test.npy', allow_pickle=True)
 
 
-# model = Word2Vec(x_train, size=100, min_count=1, window=5)
-# model.save('Word2Vec2.dict')
-word2vec_model = Word2Vec.load('Word2Vec2.dict')
+model = Word2Vec(x_train, size=100, min_count=1, window=5)
+model.save('Word2Vec3.dict')
+word2vec_model = Word2Vec.load('Word2Vec3.dict')
 print(word2vec_model)
 
 tokenizer = tf.keras.preprocessing.text.Tokenizer(num_words=MAX_NUM_WORDS)

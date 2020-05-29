@@ -104,7 +104,7 @@ total_steps, warmup_steps = calc_train_steps(
 optimizer = AdamWarmup(total_steps, warmup_steps, lr=1e-4, min_lr=LR)
 
 model.compile(
-    optimizer=optimizer,
+    RAdam(LR),
     loss='binary_crossentropy',
     metrics=['accuracy'],
 )
